@@ -2,7 +2,12 @@
  * Take gamers input to play a jousting game!
  */
 
-//Add in prompt for userName
+/**
+ * Ask user if they would like to play 
+ * @param prompt user 
+ *  
+ */
+
 let startGame = prompt ('Would you like to challenge Grant the Great?');
 if (startGame.toLowerCase() === 'yes'){
     confirm ('Let the games begin!')
@@ -11,7 +16,9 @@ if (startGame.toLowerCase() === 'yes'){
     die;
 }
 
-
+/**
+ * Prompt user for their name
+ */
 let firstName = prompt("Please enter your name");
 
  const userName = firstName
@@ -19,24 +26,36 @@ let firstName = prompt("Please enter your name");
  let userHealth = 40;
  let grantDeaths = 0;
 
-
+/**
+ * Game logic pitting userHealth vs. grantDeath count using randomNumber to up the defeat by 1 or 2 pts.
+ * @param while loop  
+ */
  while(userHealth > 0 && grantDeaths < 3) {
     grantHealth -= randomNumber = Math.floor(Math.random() * 2 + 1);
     userHealth -= randomNumber = Math.floor(Math.random() * 2 + 1);
-   // 2 random numbers
-   // grantHealth -= randomNumber
-   //userHealth -= randomNumber
-   
+ 
+ /**
+  * Log out damage + health remaining for both user and Grant the Great
+  * @param console
+  */
    console.log(`${userName} has ${userHealth} health left`)
     console.log(`Grant the Great has ${grantHealth} health left`)
-   //log out damage + health remaining
 
+/**
+ * Replenish Grant's health and record his death toll
+ * @param if statement
+*/
     if(grantHealth <= 0){
         grantDeaths++;
         grantHealth = 10;
     }
  
 }
+/**
+* Determine the winner. If user has run out of lives, Grant the Great is victorious. 
+  If Grant the Great has died three times, the user is the winner. 
+* @param if statement with console to confirm victor
+*/
     if (userHealth <= 0) {
         console.log(`MWAHAHAHAHA GRANT THE GREAT HAS DEFEATED YOU PEASANT. ALL HAIL GRANT!`); 
         } else if (grantDeaths === 3) {
@@ -46,7 +65,7 @@ let firstName = prompt("Please enter your name");
 
 
 
-/*DIRECTIONS
+/* ASSIGNMENT DIRECTIONS
 Task: Prompt the user if they would like to play the game with two characters - the user and
 the Almighty Grant. If yes, prompt the user to name their character. Run a while loop that will
 iterate until either the character has beat Grant three times or the character has been
